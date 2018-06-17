@@ -69,7 +69,7 @@ tags:
 
 ## 4. Promise + 生成器（runner）
 
-```
+```Javascript
 // 这个比较复杂，但是可以深入Promise + 生成器模式
 function run(gen) {
   var args = [].slice.call(arguments, 1);
@@ -156,7 +156,7 @@ var a = run(main, 'http://www.baidu.com');
 ```
 
 ## 5. thunk
-```
+```javascript
 // 直接产生 thunk
 function thunkify(fn) {
     var args = [].slice.call( arguments, 1 );
@@ -180,7 +180,7 @@ function thunkify(fn) {
 
 上面的跟`promisory`很像
 
-```
+```javascript
 // polyfill安全的guard检查
 if (!Promise.wrap) {
     Promise.wrap = function(fn) {
@@ -202,7 +202,7 @@ if (!Promise.wrap) {
 
 对比:
 
-```
+```javascript
 // 对称：构造问题提问者
 var fooThunkory = thunkify(foo);
 var fooPromisory = promisify(foo);

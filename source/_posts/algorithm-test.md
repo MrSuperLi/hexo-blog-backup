@@ -17,6 +17,7 @@ tags:
 - <a href="#binary_search">二分查找</a>
 - <a href="#get_min_abs_value">查找有序数组中绝对值最小元素的下标</a>
 - <a href="#maxItemSum">最大子序列和</a>
+- <a href="#relativePath">两个文件相对路径</a>
 
 <!--more-->
 
@@ -292,4 +293,33 @@ function maxItemSum($data)
     }
     return $maxSum;
 }
+```
+
+## 10. <a name="#relativePath">两个文件相对路径</a>
+
+```php
+// 计算两个文件的相对路径
+function relative_dir($path1, $path2)
+{
+  $path1 = explode('/', dirname($path1));
+  $path2 = explode('/', dirname($path2));
+
+  // 去掉相同的
+  foreach ($path1 as $k => $dir) {
+    if (!isset($path2[$k]) || ($dir != $path2[$k])) {
+      break;
+    }
+    unset($path1[$k], $path2[$k]);
+  }
+
+  $str = count($path1) ? str_repeat('../', count($path2) + 1) : str_repeat('../', count($path2));
+
+  return ($str . implode('/', $path1)) ?: './';
+
+}
+
+$path1 = '/a/b/d/c/name.pdf';
+$path2 = '/a/b/c/df.pdf';
+
+echo relative_dir($path1, $path2), "\n";
 ```
