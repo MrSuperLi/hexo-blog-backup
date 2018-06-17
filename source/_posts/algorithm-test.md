@@ -295,7 +295,7 @@ function maxItemSum($data)
 }
 ```
 
-## 10. <a name="#relativePath">两个文件相对路径</a>
+## 10. <a name="relativePath">两个文件相对路径</a>
 
 ```php
 // 计算两个文件的相对路径
@@ -312,7 +312,7 @@ function relative_dir($path1, $path2)
     unset($path1[$k], $path2[$k]);
   }
 
-  $str = count($path1) ? str_repeat('../', count($path2) + 1) : str_repeat('../', count($path2));
+  $str =  str_repeat('../', count($path2) + intval($path1));
 
   return ($str . implode('/', $path1)) ?: './';
 
