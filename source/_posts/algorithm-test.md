@@ -312,7 +312,7 @@ function relative_dir($path1, $path2)
     unset($path1[$k], $path2[$k]);
   }
 
-  $str =  str_repeat('../', count($path2) + intval($path1));
+  $str =  str_repeat('../', count($path2));
 
   return ($str . implode('/', $path1)) ?: './';
 
